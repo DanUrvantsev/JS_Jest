@@ -1,65 +1,70 @@
 const sorting = require("../../app");
 
 describe("Books names test suit", () => {
-  test("Books names should be sorted in ascending order", () => {
-    const input = [
-      "Властелин Колец",
-      "Волшебник изумрудного города",
-      "Гарри Поттер",
-    ];
-    const expected = [
-      "Властелин Колец",
-      "Волшебник изумрудного города",
-      "Гарри Поттер",
-    ];
-    const output = sorting.sortByName(input);
+	it("Books names should be sorted in ascending order", () => {
+		const input = [
+			"Гарри Поттер",
+			"Властелин Колец",
+			"Волшебник изумрудного города",
+		];
 
-    expect(output).toEqual(expected);
-  });
+		const expected = [
+			"Властелин Колец",
+			"Волшебник изумрудного города",
+			"Гарри Поттер",
+		];
+		const output = sorting.sortByName(input);
 
-  test("Should sort reverse order", () => {
-    const input = [
-      "Гарри Поттер",
-      "Волшебник изумрудного города",
-      "Властелин Колец",
-    ];
-    const expected = [
-      "Властелин Колец",
-      "Волшебник изумрудного города",
-      "Гарри Поттер",
-    ];
-    const output = sorting.sortByName(input);
+		expect(output).toEqual(expected);
+	});
 
-    expect(output).toEqual(expected);
-  });
+	it("Book titles should not be sorted", () => {
+		const input = [
+			"Властелин Колец",
+			"Волшебник изумрудного города",
+			"Гарри Поттер",
+		];
 
-  test("Should handle equal names", () => {
-    const input = [
-      "Гарри Поттер",
-      "гарри поттер",
-    ];
-    const expected = [
-      "Гарри Поттер",
-      "гарри поттер",
-    ];
-    const output = sorting.sortByName(input);
+		const expected = [
+			"Властелин Колец",
+			"Волшебник изумрудного города",
+			"Гарри Поттер",
+		];
+		const output = sorting.sortByName(input);
 
-    expect(output).toEqual(expected);
-  });
+		expect(output).toEqual(expected);
+	});
 
-  test("Should handle mixed case names", () => {
-    const input = [
-      "Властелин Колец",
-      "волшебник изумрудного города",
-      "Гарри Поттер",
-    ];
-    const expected = [
-      "Властелин Колец",
-      "Гарри Поттер",
-      "волшебник изумрудного города",
-    ];
-    const output = sorting.sortByName(input);
+  it("Book titles should be sorted in descending order", () => {
+		const input = [
+			"Властелин Колец",
+			"Волшебник изумрудного города",
+			"Гарри Поттер",
+		];
 
-    expect(output).toEqual(expected);
-  });
+		const expected = [
+			"Властелин Колец",
+			"Волшебник изумрудного города",
+			"Гарри Поттер",
+		];
+		const output = sorting.sortByName(input);
+
+		expect(output).toEqual(expected);
+	});
+  it("The book titles are the same", () => {
+		const input = [
+			"Властелин Колец",
+			"Властелин Колец",
+			"Властелин Колец",
+		];
+
+		const expected = [
+			"Властелин Колец",
+			"Властелин Колец",
+			"Властелин Колец",
+		];
+		const output = sorting.sortByName(input);
+
+		expect(output).toEqual(expected);
+	});
 });
